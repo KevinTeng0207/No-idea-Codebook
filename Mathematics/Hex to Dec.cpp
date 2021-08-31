@@ -1,4 +1,4 @@
-int HextoDec(string num) 16 to 10
+int HextoDec(string num) //16 to 10
 {
     int base = 1;
     int temp = 0;
@@ -17,7 +17,7 @@ int HextoDec(string num) 16 to 10
     }
     return temp;
 }
-void DecToHex(int p_intValue) 10 to 16
+void DecToHex(int p_intValue) //10 to 16
 {
     char l_pCharRes = new (char);
     sprintf(l_pCharRes, % X, p_intValue);
