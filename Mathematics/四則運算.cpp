@@ -1,4 +1,4 @@
-string s = "";
+string s = ""; //開頭是負號要補0
 long long int DFS(int le, int ri) // (0, string final index)
 {
     int c = 0;
