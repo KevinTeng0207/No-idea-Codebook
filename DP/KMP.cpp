@@ -32,8 +32,7 @@ void KMPMatcher(string text, string pattern)
         }
     }
 }
-string s = "abcdabcdebcd";
-string p = "bcd";
-KMPMatcher(s, p);
-cout << endl;
-return 0;
+// string s = "abcdabcdebcd";
+// string p = "bcd";
+// KMPMatcher(s, p);
+// cout << endl;
