@@ -21,7 +21,7 @@ struct Bigint{
             stPos = 1;
             s = -1;
         }
-        for (int i= str.length() - 1-1, q=1; i>=stPos; i--) {
+        for (int i= str.length() - 1, q=1; i>=stPos; i--) {
             num += (str[i] - '0') * q;
             if ((q *= 10) >= BIGMOD) {
                 push_back(num);
