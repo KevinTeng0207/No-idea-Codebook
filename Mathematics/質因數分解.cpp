@@ -8,13 +8,9 @@ void primeFactorization(int n) // 配合質數表
             continue;
         cout << p[i] << ' ';
         while (n % p[i] == 0)
-        {
             n /= p[i];
-        }
     }
     if (n != 1)
-    {
         cout << n << ' ';
-    }
     cout << '\n';
 }
