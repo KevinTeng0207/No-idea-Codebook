@@ -1,15 +1,21 @@
-// 埃拉托斯特尼篩法
-const int maxn = 10000000;
-bitset<maxn> is_not_prime; // false 是質數
-void sieve()
+const int maxn = sqrt(INT_MAX);
+vector<int> p;
+bitset<maxn> is_notp;
+void PrimeTable()
 {
-    is_not_prime[0] = is_not_prime[1] = 1;
-    for (int i = 2; i * i < maxn; ++i)
+    is_notp.reset();
+    is_notp[0] = is_notp[1] = 1;
+    for (int i = 2; i <= maxn; ++i)
     {
-        if (is_not_prime[i] == 0)
+        if (!is_notp[i])
+            p.push_back(i);
+        for (int j = 0; j < (int)p.size(); ++j)
         {
-            for (int j = i * i; j < maxn; j += i)
-                is_not_prime[j] = 1;
+            if (i * p[j] > maxn)
+                break;
+            is_notp[i * p[j]] = 1;
+            if (i % p[j] == 0)
+                break;
         }
     }
 }
