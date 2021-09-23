@@ -13,7 +13,7 @@ int LCS(vector<string> Ans, vector<string> num)
         }
     }
     cout << LCS[N][M] << '\n';
-    //列印 Last appear LCS
+    //列印 LCS
     int n = N, m = M;
     vector<string> k;
     while (n && m)
