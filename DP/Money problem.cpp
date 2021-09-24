@@ -12,7 +12,7 @@ void change(vector<int> price, int limit)
 // 湊得某個價位的湊法總共幾種
 void change(vector<int> price, int limit)
 {
-    vector<bool> c(limit + 1, 0);
+    vector<int> c(limit + 1, 0);
     c[0] = true;
     for (int i = 0; i < price.size(); ++i)
         for (int j = price[i]; j <= limit; ++j)
@@ -22,7 +22,7 @@ void change(vector<int> price, int limit)
 // 湊得某個價位的最少錢幣用量
 void change(vector<int> price, int limit)
 {
-    vector<bool> c(limit + 1, 0);
+    vector<int> c(limit + 1, 0);
     c[0] = true;
     for (int i = 0; i < price.size(); ++i)
         for (int j = price[i]; j <= limit; ++j)
@@ -32,7 +32,7 @@ void change(vector<int> price, int limit)
 //湊得某個價位的錢幣用量，有哪幾種可能性
 void change(vector<int> price, int limit)
 {
-    vector<bool> c(limit + 1, 0);
+    vector<int> c(limit + 1, 0);
     c[0] = true;
     for (int i = 0; i < price.size(); ++i)
         for (int j = price[i]; j <= limit; ++j)
