@@ -1,4 +1,5 @@
 /*Flow - Edmonds-karp*/
+/*Based on UVa820*/
 #include<bits/stdc++.h>
 #define inf 1000000;
 using namespace std;
@@ -28,12 +29,10 @@ int getMaxFlow(vector<vector<int>> &capacity, int s, int t, int n){
         residual[pre[cur]][cur] += bottleneck[t];
         residual[cur][pre[cur]] -= bottleneck[t];
     }
-
     ans += bottleneck[t];
   }
   return ans;
 }
-
 int main(){
   int testcase = 1;
   int n;
@@ -43,7 +42,6 @@ int main(){
     vector<vector<int>> capacity(n+1, vector<int>(n+1, 0));
     int s, t, c;
     cin >> s >> t >> c;
-
     int a, b, bandwidth;
     for(int i = 0 ; i < c ; ++i){
       cin >> a >> b >> bandwidth;
@@ -54,6 +52,5 @@ int main(){
     cout << "The bandwidth is " << getMaxFlow(capacity, s, t, n) << "." << endl;
     cout << endl;
   }
-
   return 0;
 }
