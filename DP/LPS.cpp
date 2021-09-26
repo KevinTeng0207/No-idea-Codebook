@@ -24,7 +24,6 @@ void LPS(string s)
             r = i + x;
         }
     }
-
     cout << maxlen << '\n';  // 最後長度
     cout << l + 1 << ' ' << r + 1 << '\n'; //頭到尾
 }

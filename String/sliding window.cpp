@@ -1,4 +1,5 @@
-string minWindow(string s, string t) {
+string minWindow(string s, string t)
+{
     unordered_map<char, int> letterCnt;
     for (int i = 0; i < t.length(); i++)
         letterCnt[t[i]]++;

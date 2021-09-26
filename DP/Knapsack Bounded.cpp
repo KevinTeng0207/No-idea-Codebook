@@ -1,7 +1,6 @@
 const int N = 100, W = 100000;
 int cost[N], weight[N], number[N];
 int c[W + 1];
-
 void knapsack(int n, int w)
 {
     for (int i = 0; i < n; ++i)

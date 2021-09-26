@@ -1,12 +1,4 @@
-void toans(vector<vector<int>> &ans, vector<int> com)
-{
-    // sort(com.begin(), com.end());
-    ans.push_back(com);
-    // for (auto i : com)
-    //     cout << i << ' ';
-    // cout << endl;
-}
-void finds(int j, int old, int num, vector<int> com, vector<vector<int>> &ans)
+void dfs(int j, int old, int num, vector<int> com, vector<vector<int>> &ans)
 {
     for (int i = j; i <= sqrt(num); i++)
     {
@@ -19,20 +11,17 @@ void finds(int j, int old, int num, vector<int> com, vector<vector<int>> &ans)
             a.push_back(i);
             finds(i, old, num / i, a, ans);
             a.push_back(num / i);
-            toans(ans, a);
+            ans.push_back(a);
         }
     }
 }
-int main()
+vector<vector<int>> ans;
+vector<int> zero;
+dfs(2, num, num, zero, ans);
+/*/num 為 input 數字*/
+for (int i = 0; i < ans.size(); i++)
 {
-    vector<vector<int>> ans;
-    vector<int> zero;
-    finds(2, num, num, zero, ans);
-    // num 為 input 數字
-    for (int i = 0; i < ans.size(); i++)
-    {
-        for (int j = 0; j < ans[i].size() - 1; j++)
-            cout << ans[i][j] << " ";
-        cout << ans[i][ans[i].size() - 1] << endl;
-    }
+    for (int j = 0; j < ans[i].size() - 1; j++)
+        cout << ans[i][j] << " ";
+    cout << ans[i][ans[i].size() - 1] << endl;
 }

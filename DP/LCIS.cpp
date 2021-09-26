@@ -4,11 +4,9 @@ int LCIS_len(vector<int> arr1, vetor<int> arr2)
     vector<int> table(m, 0);
     for (int j = 0; j < m; j++)
         table[j] = 0;
-
     for (int i = 0; i < n; i++)
     {
         int current = 0;
-
         for (int j = 0; j < m; j++)
         {
 
@@ -25,6 +23,5 @@ int LCIS_len(vector<int> arr1, vetor<int> arr2)
     for (int i = 0; i < m; i++)
         if (table[i] > result)
             result = table[i];
-
     return result;
 }
