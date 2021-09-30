@@ -12,7 +12,7 @@ $ cd Codebook
 $ python GenCodebookList.py
 $ xelatex Codebook.tex && xelatex Codebook.tex
 ~~~
-## OR
+### OR
 **Step 2:** Go to the project root and build by
 ~~~
 $ cd Codebook
