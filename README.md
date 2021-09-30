@@ -12,7 +12,12 @@ $ cd Codebook
 $ python GenCodebookList.py
 $ xelatex Codebook.tex && xelatex Codebook.tex
 ~~~
-
+## OR
+**Step 2:** Go to the project root and build by
+~~~
+$ cd Codebook
+$ updatePDF.bat
+~~~
 ### 1.1. Dependencies
 
 * python (version >= 3.0)
