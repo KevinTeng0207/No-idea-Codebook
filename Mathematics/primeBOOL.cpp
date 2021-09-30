@@ -1,6 +1,7 @@
 // n < 4759123141     chk = [2, 7, 61]
 // n < 1122004669633  chk = [2, 13, 23, 1662803]
 // n < 2^64           chk = [2, 325, 9375, 28178, 450775, 9780504, 1795265022]
+vector<long long> chk = {};
 long long fmul(long long a, long long n, long long mod)
 {
     long long ret = 0;
