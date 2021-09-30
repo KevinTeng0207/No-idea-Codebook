@@ -1,3 +1,4 @@
+// 用在在一個 S 內查找一個詞 W 的出現位置
 void ComputePrefix(string s, int next[])
 {
     int n = s.length();

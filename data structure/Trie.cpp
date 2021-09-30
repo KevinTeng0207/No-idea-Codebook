@@ -50,7 +50,6 @@ ostream& operator << (ostream &out, const BigInteger& x){
             out << buf[j];
         }
     }
-
     return out;
 }
 
@@ -58,7 +57,6 @@ istream& operator >> (istream &in, BigInteger& x){
     string s;
     if(!(in >> s))
         return in;
-
     x = s;
     return in;
 }
@@ -75,7 +73,6 @@ struct Trie{
         memset(val, -1, sizeof(val));
         sz = 1;
     }
-
     void insert(BigInteger x, int v){
         int u = 0;
         int max_len_count = 0;
@@ -92,7 +89,6 @@ struct Trie{
             u = c[u][index];
             max_len_count++;
         }
-
         for(int i = x.s.size()-2; i >= 0;i--){
             char buf[20];
             sprintf(buf, "%08d", x.s[i]);
@@ -111,7 +107,6 @@ struct Trie{
             }
         }
     }
-
     int find(const char* s){
         int u = 0;
         int n = strlen(s);
