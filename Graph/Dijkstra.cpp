@@ -1,7 +1,5 @@
 /*SPA - Dijkstra*/
-#include<bits/stdc++.h>
 #define inf INT_MAX
-using namespace std;
 vector<vector<int> > weight;
 vector<int> ancestor;
 vector<int> dist;

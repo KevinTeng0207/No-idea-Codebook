@@ -1,7 +1,5 @@
 /*SPA - Floyd-Warshall*/
-#include<bits/stdc++.h>
 #define inf 99999
-using namespace std;
 void floyd_warshall(vector<vector<int>>& distance, vector<vector<int>>& ancestor,int n){
     for (int k = 0; k < n; k++){
         for (int i = 0; i < n; i++){

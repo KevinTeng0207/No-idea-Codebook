@@ -1,7 +1,5 @@
 /*mst - Prim*/
-#include<bits/stdc++.h>
 #define inf 99999
-using namespace std;
 struct edges{
     int from;
     int to;

@@ -1,6 +1,4 @@
 /*mst - Kruskal*/
-#include<bits/stdc++.h>
-using namespace std;
 struct edges{
     int from;
     int to;

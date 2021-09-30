@@ -1,6 +1,4 @@
 /*DFS - Recursive version*/
-#include<bits/stdc++.h>
-using namespace std;
 map<pair<int,int>,int> edges;
 vector<int> pass;
 vector<int> route;

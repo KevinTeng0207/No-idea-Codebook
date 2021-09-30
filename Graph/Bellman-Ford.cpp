@@ -1,7 +1,5 @@
 /*SPA - Bellman-Ford*/
-#include<bits/stdc++.h>
 #define inf 99999 //define by you maximum edges weight
-using namespace std;
 vector<vector<int> > edges;
 vector<int> dist;
 vector<int> ancestor;
