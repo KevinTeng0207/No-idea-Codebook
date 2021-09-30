@@ -54,7 +54,7 @@ struct polygon
         return 0;
     }
     vector<T> getA() const
-    {                  //凸包邊對x軸的夾角
+    {//凸包邊對x軸的夾角
         vector<T> res; //一定是遞增的
         for (size_t i = 0; i < p.size(); ++i)
             res.push_back((p[(i + 1) % p.size()] - p[i]).getA());
@@ -178,7 +178,7 @@ struct polygon
         return sign(a) < sign(b) || (sign(a) == sign(b) && a.cross(b) > 0);
     }
     int halfplane_intersection(vector<line<T>> &s)
-    {                                        //半平面交
+    {  //半平面交
         sort(s.begin(), s.end(), angle_cmp); //線段左側為該線段半平面
         int L, R, n = s.size();
         vector<point<T>> px(n);
