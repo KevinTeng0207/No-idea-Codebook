@@ -1,9 +1,6 @@
 /*Flow - Edmonds-karp*/
 /*Based on UVa820*/
-#include<bits/stdc++.h>
-#define inf 1000000;
-using namespace std;
-
+#define inf 1000000
 int getMaxFlow(vector<vector<int>> &capacity, int s, int t, int n){
   int ans = 0;
   vector<vector<int>> residual(n+1, vector<int>(n+1, 0)); //residual network
