@@ -1,7 +1,8 @@
 round(double f); // 四捨五入
 ceil(double f);  // 無條件捨去
 floor(double f); //無條件進入
-
+__builtin_popcount(int n) // 32bit有多少 1
+to_string(int s) // int to string
 /*queue*/
 queue<datatype> q;
 front(); /*取出最前面的值(沒有移除掉喔!!)*/
