@@ -1,2 +1,6 @@
-ios_base::sync_with_stdio(0); 
-cin.tie(0);
+void io()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+}
