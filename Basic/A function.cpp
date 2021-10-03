@@ -3,12 +3,13 @@ ceil(double f);            // 無條件捨去
 floor(double f);           //無條件進入
 __builtin_popcount(int n); // 32bit有多少 1
 to_string(int s);          // int to string
-
-vector<int>::iterator it = lower_bound(v.begin(), v.end(), val);
+/** 全排列要先 sort !!! **/
+next_permutation(num.begin(), num.end());
+prev_permutation(num.begin(), num.end());
 //用binary search找大於或等於val的最小值的位置
-vector<int>::iterator it = upper_bound(v.begin(), v.end(), val);
+vector<int>::iterator it = lower_bound(v.begin(), v.end(), val);
 //用binary search找大於val的最小值的位置
-
+vector<int>::iterator it = upper_bound(v.begin(), v.end(), val);
 /*queue*/
 queue<datatype> q;
 front(); /*取出最前面的值(沒有移除掉喔!!)*/
