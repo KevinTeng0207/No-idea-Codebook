@@ -1,4 +1,4 @@
-//台大
+//台大 //非必要請用python
 struct Bigint
 {
     static const int LEN = 60;       // maxLEN
