@@ -1,8 +1,8 @@
-//輸入1
+/*輸入1*/
 import sys 
 line = sys.stdin.readline() 
-//輸入2
-input().strip() 
+/*輸入2*/
+line = input().strip()
 D, R, N = map(int, line[:-1].split()) // 分三個 int 變數
 
 print(*objects, sep = ' ', end = '\n')
