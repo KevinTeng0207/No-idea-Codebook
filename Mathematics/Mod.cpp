@@ -18,7 +18,6 @@ int pow_mod(int a, int n, int m) // a ^ n mod m;
 加法交換律：(a + b) % p = (b + a) % p;
 乘法交換律：(a * b) % p = (b * a) % p;
 結合律：((a + b) % p * c) = ((a * c) % p + (b * c) % p) % p;
-
 /****同餘****/
 如果 a ≡ b(mod m) ，我們會說 a,b 在模 m 下同餘。
 整除性： a ≡ b(mod m) ⇒ c ⋅ m = a − b, c ∈ Z ⇒ a ≡ b (mod m) ⇒ m|a−b
@@ -26,7 +25,6 @@ int pow_mod(int a, int n, int m) // a ^ n mod m;
 a ≡ b (mod m) ⇒ { a ± c ≡ b ± d (mod m) }
 c ≡ d (mod m) ⇒ { a * c ≡ b * d (mod m) }
 放大縮小模數：k ∈ Z+, a ≡ b (mod m) ⇔ k ⋅ a ≡ k ⋅ b (mod k⋅m)
-D
 /****費瑪定理****/
 假如 a 是一個整數，p 是一個質數，且 a, p 互質
 a ^ (p - 1) ≡ 1 mod P  如果 gcd(a,p) = 1 且 p 為質數
