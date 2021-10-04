@@ -1,39 +1,36 @@
 /*SPA - Dijkstra*/
-#define inf INT_MAX
-vector<vector<int> > weight;
-vector<int> ancestor;
-vector<int> dist;
-void dijkstra(int start){
-    priority_queue<pair<int,int> ,vector<pair<int,int> > ,greater<pair<int,int> > > pq;
-    pq.push(make_pair(0,start));
-    while(!pq.empty()){
-        int cur = pq.top().second;
+const int MAXN = 1e5 + 3;
+const int inf = INT_MAX;
+vector<vector<pii>> weight;
+vector<int> isDone(MAXN, false), dist, ancestor;
+void dijkstra(int s)
+{
+    priority_queue<pii, vector<pii>, greater<pii>> pq;
+    pq.push(pii(0, s));
+    ancestor[s] = -1;
+    while (!pq.empty())
+    {
+        int u = pq.top().second;
         pq.pop();
-        for(int i = 0; i < weight[cur].size(); i++){
-            if(dist[i] > dist[cur] + weight[cur][i] && weight[cur][i] != -1){
-                dist[i] = dist[cur] + weight[cur][i];
-                ancestor[i] = cur;
-                pq.push(make_pair(dist[i],i));
+
+        isDone[u] = true;
+
+        for (auto &pr : weight[u])
+        {
+            int v = pr.first, w = pr.second;
+
+            if (!isDone[v] && dist[u] + w < dist[v])
+            {
+                dist[v] = dist[u] + w;
+                pq.push(pii(dist[v], v));
+                ancestor[v] = u;
             }
         }
     }
 }
-int main(){
-    int node;
-    cin>>node;
-    int a,b,d;
-    weight.resize(node,vector<int>(node,-1));
-    while(cin>>a>>b>>d){ 
-        /*input: source destination weight*/
-        if(a == -1 && b == -1 && d == -1)
-            break;
-        weight[a][b] = d;
-    }
-    ancestor.resize(node,-1);
-    dist.resize(node,inf);
-    int start;
-    cin>>start;
-    dist[start] = 0;
-    dijkstra(start);
-    return 0;
-}
+// weight[a - 1].push_back(pii(b - 1, w));
+// weight[b - 1].push_back(pii(a - 1, w));
+// dist.resize(n, inf);
+// ancestor.resize(n, -1);
+// dist[0] = 0;
+// dijkstra(0);
