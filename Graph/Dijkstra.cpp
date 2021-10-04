@@ -1,6 +1,7 @@
 /*SPA - Dijkstra*/
 const int MAXN = 1e5 + 3;
 const int inf = INT_MAX;
+typedef pair<int, int> pii;
 vector<vector<pii>> weight;
 vector<int> isDone(MAXN, false), dist, ancestor;
 void dijkstra(int s)
