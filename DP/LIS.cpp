@@ -1,49 +1,42 @@
-void getMaxElementAndPos(vector<int> &LISTbl, vector<int> &LISLen, int tNum, int tlen, int tStart, int &num, int &pos)
+vector<int> ans;
+void printLIS(vector<int> &arr, vector<int> &pos, int index)
 {
-    int max = numeric_limits<int>::min();
-    int maxPos;
-    for (int i = tStart; i >= 0; i--)
+    if (pos[index] != -1)
+        printLIS(arr, pos, pos[index]);
+    // printf("%d", arr[index]);
+    ans.push_back(arr[index]);
+}
+void LIS(vector<int> &arr)
+{
+    vector<int> dp(arr.size(), 1);
+    vector<int> pos(arr.size(), -1);
+    int res = INT_MIN, index = 0;
+    for (int i = 0; i < arr.size(); ++i)
     {
-        if (LISLen[i] == tlen && LISTbl[i] < tNum)
+        for (int j = i + 1; j < arr.size(); ++j)
         {
-            if (LISTbl[i] > max)
+            if (arr[j] > arr[i])
             {
-                max = LISTbl[i];
-                maxPos = i;
+                if (dp[i] + 1 > dp[j])
+                {
+                    dp[j] = dp[i] + 1;
+                    pos[j] = i;
+                }
             }
         }
+        if (dp[i] > res)
+        {
+            res = dp[i];
+            index = i;
+        }
     }
-    num = max;
-    pos = maxPos;
-}
-int LIS(vector<int> &LISTbl)
-{
-    if (LISTbl.size() == 0)
-        return 0;
-    vector<int> LISLen(LISTbl.size(), 1);
-    for (int i = 1; i < LISTbl.size(); i++)
-        for (int j = 0; j < i; j++)
-            if (LISTbl[j] < LISTbl[i])
-                LISLen[i] = max(LISLen[i], LISLen[j] + 1);
-    int maxlen = *max_element(LISLen.begin(), LISLen.end());
-    int num, pos;
-    vector<int> buf;
-    getMaxElementAndPos(LISTbl, LISLen, numeric_limits<int>::max(), maxlen, LISTbl.size() - 1, num, pos);
-    buf.push_back(num);
-    for (int len = maxlen - 1; len >= 1; len--)
+    cout << res << endl; // length
+    printLIS(arr, pos, index);
+    for (int i = 0; i < ans.size(); i++)
     {
-        int tnum = num;
-        int tpos = pos;
-        getMaxElementAndPos(LISTbl, LISLen, tnum, len, tpos - 1, num, pos);
-        buf.push_back(num);
+        cout << ans[i];
+        if (i != ans.size() - 1)
+            cout << ' ';
     }
-    reverse(buf.begin(), buf.end());
-    for (int k = 0; k < buf.size(); k++) //列印
-    {
-        if (k == buf.size() - 1)
-            cout << buf[k] << endl;
-        else
-            cout << buf[k] << ",";
-    }
-    return maxlen;
+    cout << '\n';
 }

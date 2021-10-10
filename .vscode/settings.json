@@ -3,6 +3,7 @@
         "xstring": "cpp",
         "string": "cpp",
         "algorithm": "cpp",
-        "xutility": "cpp"
+        "xutility": "cpp",
+        "iosfwd": "cpp"
     }
 }
