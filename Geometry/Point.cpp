@@ -1,3 +1,4 @@
+const double PI = atan2(0.0, -1.0);
 template <typename T>
 struct point
 {
