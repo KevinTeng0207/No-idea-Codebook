@@ -1,6 +1,6 @@
 round(double f);           // 四捨五入
-ceil(double f);            // 無條件捨去
-floor(double f);           //無條件進入
+ceil(double f);            // 進入
+floor(double f);           //捨去
 __builtin_popcount(int n); // 32bit有多少 1
 to_string(int s);          // int to string
 
