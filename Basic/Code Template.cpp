@@ -3,6 +3,8 @@ using namespace std;
 typedef long long ll;
 typedef unsigned long long ull;
 typedef pair<int, int> pii;
+#define x first
+#define y second
 #define pb push_back
 #define endl '\n'
 #define bug(x) cout << "value of " << #x << " is " << x << endl;
@@ -10,15 +12,6 @@ typedef pair<int, int> pii;
     for (auto i : x)      \
         cout << i << ' '; \
     cout << endl;
-#define bugarrarr(x)          \
-    for (auto i : x)          \
-    {                         \
-        for (auto j : i)      \
-            cout << i << ' '; \
-        cout << endl;         \
-    }                         \
-#define x first
-#define y second
 int main()
 {
     ios::sync_with_stdio(0);
