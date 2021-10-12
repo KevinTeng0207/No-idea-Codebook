@@ -13,3 +13,10 @@ print(*objects, sep = ' ', end = '\n')
 // objects -- 可以一次輸出多個對象
 // sep -- 分開多個objects
 // end -- 默認值是\n
+
+// EOF break
+try:
+    while True:
+        //input someithing
+except EOFError:
+    pass

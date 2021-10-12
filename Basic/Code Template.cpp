@@ -5,6 +5,7 @@ typedef unsigned long long ull;
 typedef pair<int, int> pii;
 #define x first
 #define y second
+#define all(p) p.begin(), p.end()
 #define pb push_back
 #define endl '\n'
 #define bug(x) cout << "value of " << #x << " is " << x << endl;
