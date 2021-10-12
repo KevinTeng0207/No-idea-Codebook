@@ -5,14 +5,16 @@ typedef unsigned long long ull;
 typedef pair<int, int> pii;
 #define x first
 #define y second
-#define all(p) p.begin(), p.end()
 #define pb push_back
+#define len length()
+#define all(p) p.begin(), p.end()
 #define endl '\n'
 #define bug(x) cout << "value of " << #x << " is " << x << endl;
 #define bugarr(x)         \
     for (auto i : x)      \
         cout << i << ' '; \
     cout << endl;
+
 int main()
 {
     ios::sync_with_stdio(0);
