@@ -68,3 +68,21 @@ int main(){
         party[find(i, union_set)].push_back(i);
     
 }
+
+int Find(int x)
+{
+    if (x != father[x])
+        father[x] = Find(father[x]);
+    return father[x];
+}
+
+void Union(int x, int y)
+{
+    int m = Find(x);
+    int n = Find(y);
+    if (m != n)
+    {
+        father[n] = m;
+        people[m] += people[n];
+    }
+}
