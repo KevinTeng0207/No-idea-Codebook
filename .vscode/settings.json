@@ -5,6 +5,8 @@
         "algorithm": "cpp",
         "xutility": "cpp",
         "iosfwd": "cpp",
-        "cmath": "cpp"
+        "cmath": "cpp",
+        "initializer_list": "cpp",
+        "type_traits": "cpp"
     }
 }
