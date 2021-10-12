@@ -44,31 +44,43 @@ int main()
         party[find(i, union_set)].push_back(i);
 }
 /*Simplify version*/
-int find(int x,vector<int> union_set){
-    return (x == union_set[x]) ? x : find(union_set[x],union_set);
+int find(int x, vector<int> union_set)
+{
+    return (x == union_set[x]) ? x : find(union_set[x], union_set);
 }
-int main(){
+int main()
+{
     int node;
-    cin>>node;
-    vector<int> union_set(node,0);
-    for(int i = 0;i < node; i++)
+    cin >> node;
+    vector<int> union_set(node, 0);
+    for (int i = 0; i < node; i++)
         union_set[i] = i;
     int edge;
-    cin>>edge;
-    for(int i = 0; i < edge; i++){
-        int a,b;
-        cin>>a>>b;
-        union_set[a] = find(b,union_set);
+    cin >> edge;
+    for (int i = 0; i < edge; i++)
+    {
+        int a, b;
+        cin >> a >> b;
+        union_set[a] = find(b, union_set);
     }
-    for(int i = 0;i < node; i++) // find the root
-        union_set[i] = find(i,union_set);
+    for (int i = 0; i < node; i++) // find the root
+        union_set[i] = find(i, union_set);
     /*build party*/
     vector<vector<int>> party(node, vector<int>(0));
     for (int i = 0; i < node; i++)
         party[find(i, union_set)].push_back(i);
-    
 }
-
+// 台大
+vector<int> father;
+vector<int> people;
+void init(int)
+{
+    for (int i = 0; i < n; i++)
+    {
+        father[i] = i;
+        people[i] = 1;
+    }
+}
 int Find(int x)
 {
     if (x != father[x])
