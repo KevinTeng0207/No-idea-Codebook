@@ -1,7 +1,7 @@
 // union_find from 台大
 vector<int> father;
 vector<int> people;
-void init(int)
+void init(int n)
 {
     for (int i = 0; i < n; i++)
     {
