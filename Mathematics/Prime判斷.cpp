@@ -1,63 +1,73 @@
-// n < 4759123141     chk = [2, 7, 61]
-// n < 1122004669633  chk = [2, 13, 23, 1662803]
-// n < 2^64           chk = [2, 325, 9375, 28178, 450775, 9780504, 1795265022]
-vector<long long> chk = {};
-long long fmul(long long a, long long n, long long mod)
+typedef long long ll;
+ll modmul(ll a, ll b, ll mod)
 {
-    long long ret = 0;
-    for (; n; n >>= 1)
-    {
-        if (n & 1)
-            (ret += a) %= mod;
-        (a += a) %= mod;
-    }
+    ll ret = 0;
+    for (; b; b >>= 1, a = (a + a) % mod)
+        if (b & 1)
+            ret = (ret + a) % mod;
     return ret;
 }
-
-long long fpow(long long a, long long n, long long mod)
+ll qpow(ll x, ll u, ll mod)
 {
-    long long ret = 1LL;
-    for (; n; n >>= 1)
-    {
-        if (n & 1)
-            ret = fmul(ret, a, mod);
-        a = fmul(a, a, mod);
-    }
+    ll ret = 1ll;
+    for (; u; u >>= 1, x = modmul(x, x, mod))
+        if (u & 1)
+            ret = modmul(ret, x, mod);
     return ret;
 }
-bool check(long long a, long long u, long long n, int t)
+ll gcd(ll a, ll b)
 {
-    a = fpow(a, u, n);
-    if (a == 0)
-        return true;
-    if (a == 1 || a == n - 1)
-        return true;
-    for (int i = 0; i < t; ++i)
-    {
-        a = fmul(a, a, n);
-        if (a == 1)
-            return false;
-        if (a == n - 1)
-            return true;
-    }
-    return false;
+    return b ? gcd(b, a % b) : a;
 }
-bool is_prime(long long n)
+ll Pollard_Rho(ll n, ll c)
 {
-    if (n < 2)
-        return false;
-    if (n % 2 == 0)
-        return n == 2;
-    long long u = n - 1;
-    int t = 0;
-    for (; u & 1; u >>= 1, ++t)
-        ;
-    for (long long i : chk)
+    ll i = 1, j = 2, x = rand() % (n - 1) + 1, y = x;
+    while (1)
     {
-        if (!check(i, u, n, t))
-            return false;
+        i++;
+        x = (modmul(x, x, n) + c) % n;
+        ll p = gcd((y - x + n) % n, n);
+        if (p != 1 && p != n)
+            return p;
+        if (y == x)
+            return n;
+        if (i == j)
+        {
+            y = x;
+            j <<= 1;
+        }
     }
-    return true;
 }
-
-// if (is_prime(int num)) // true == prime 反之亦然
+bool Miller_Rabin(ll n)
+{
+    ll x, pre, u = n - 1;
+    int i, j, k = 0;
+    if (n == 2 || n == 3 || n == 5 || n == 7 || n == 11)
+        return 1;
+    if (n == 1 || !(n % 2) || !(n % 3) || !(n % 5) || !(n % 7) || !(n % 11))
+        return 0;
+    while (!(u & 1))
+    {
+        k++;
+        u >>= 1;
+    }
+    srand((long long)12234336);
+    for (i = 1; i <= 50; i++)
+    {
+        x = rand() % (n - 2) + 2;
+        if (!(n % x))
+            return 0;
+        x = qpow(x, u, n);
+        pre = x;
+        for (j = 1; j <= k; j++)
+        {
+            x = modmul(x, x, n);
+            if (x == 1 && pre != 1 && pre != n - 1)
+                return 0;
+            pre = x;
+        }
+        if (x != 1)
+            return 0;
+    }
+    return 1;
+}

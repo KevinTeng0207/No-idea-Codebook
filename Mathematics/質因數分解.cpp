@@ -1,16 +1,17 @@
-void primeFactorization(int n) // 配合質數表
+LL ans;
+void find(LL n, LL c) // 配合質數判斷
 {
-    for (int i = 0; i < (int)p.size(); ++i)
+    if (n == 1)
+        return;
+    if (Miller_Rabin(n))
     {
-        if (p[i] * p[i] > n)
-            break;
-        if (n % p[i])
-            continue;
-        cout << p[i] << ' ';
-        while (n % p[i] == 0)
-            n /= p[i];
+        ans = min(ans, n);
+        // bug(ans); //質因數
+        return;
     }
-    if (n != 1)
-        cout << n << ' ';
-    cout << '\n';
+    LL x = n, k = c;
+    while (x == n)
+        x = Pollard_Rho(x, c--);
+    find(n / x, k);
+    find(x, k);
 }
