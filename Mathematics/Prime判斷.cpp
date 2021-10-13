@@ -71,3 +71,4 @@ bool Miller_Rabin(ll n)
     }
     return 1;
 }
+// if (Miller_Rabin(n)) puts("Prime");

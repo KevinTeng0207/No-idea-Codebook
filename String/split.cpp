@@ -1,19 +1,14 @@
-vector<string> mysplit(const string &str, const string &delim)
+vector<string> mysplit(string s, string d)
 {
+    int ps = 0, pe, dl = d.length();
+    string token;
     vector<string> res;
-    if ("" == str)
-        return res;
-
-    char *strs = new char[str.length() + 1];
-    char *d = new char[delim.length() + 1];
-    strcpy(strs, str.c_str());
-    strcpy(d, delim.c_str());
-    char *p = strtok(strs, d);
-    while (p)
+    while ((pe = s.find(d, ps)) != string::npos)
     {
-        string s = p;
-        res.push_back(s);
-        p = strtok(NULL, d);
+        token = s.substr(ps, pe - ps);
+        ps = pe + dl;
+        res.push_back(token);
     }
+    res.push_back(s.substr(ps));
     return res;
 }
