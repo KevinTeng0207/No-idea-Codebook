@@ -1,10 +1,23 @@
 /*SPA - Floyd-Warshall*/
+// 有向圖，正邊　　O(V³)
+// 有向圖，無負環　O(V³)
+// 有向圖，有負環　不適用
+
+// 無向圖，正邊　　O(V³)
+// 無向圖，無負環　不適用
+// 無向圖，有負環　不適用
+/*Find min weight cycle*/
 #define inf 99999
-void floyd_warshall(vector<vector<int>>& distance, vector<vector<int>>& ancestor,int n){
-    for (int k = 0; k < n; k++){
-        for (int i = 0; i < n; i++){
-            for (int j = 0; j < n; j++){
-                if(distance[i][k] + distance[k][j] < distance[i][j]){
+void floyd_warshall(vector<vector<int>> &distance, vector<vector<int>> &ancestor, int n)
+{
+    for (int k = 0; k < n; k++)
+    {
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < n; j++)
+            {
+                if (distance[i][k] + distance[k][j] < distance[i][j])
+                {
                     distance[i][j] = distance[i][k] + distance[k][j];
                     ancestor[i][j] = ancestor[k][j];
                 }
@@ -12,27 +25,19 @@ void floyd_warshall(vector<vector<int>>& distance, vector<vector<int>>& ancestor
         }
     }
 }
-int main(){
-    int n;
-    cin >> n;
-    int a, b, d;
-    vector<vector<int>> distance(n, vector<int>(n,99999));
-    vector<vector<int>> ancestor(n, vector<int>(n,-1));
-    while(cin>>a>>b>>d){
-        if(a == -1 && b == -1 && d == -1)
-            break;
-        distance[a][b] = d;
-        ancestor[a][b] = a;
+
+vector<vector<int>> distance(n, vector<int>(n, inf));
+vector<vector<int>> ancestor(n, vector<int>(n, -1));
+distance[a][b] = w;
+ancestor[a][b] = w;
+floyd_warshall(distance, ancestor, n);
+/*Negative cycle detection*/
+for (int i = 0; i < n; i++)
+{
+    if (distance[i][i] < 0)
+    {
+        cout << "Negative cycle!" << endl;
+        break;
     }
-    for (int i = 0; i < n; i++)
-        distance[i][i] = 0;
-    floyd_warshall(distance, ancestor, n);
-    /*Negative cycle detection*/
-    for (int i = 0; i < n; i++){
-        if(distance[i][i] < 0){
-            cout << "Negative cycle!" << endl;
-            break;
-        }
-    }
-    return 0;
 }
+
