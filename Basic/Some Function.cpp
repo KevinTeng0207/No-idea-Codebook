@@ -13,11 +13,11 @@ vector<int>::iterator it = lower_bound(v.begin(), v.end(), val);
 vector<int>::iterator it = upper_bound(v.begin(), v.end(), val);
 
 /*找到範圍裏面的最大元素*/
-max_element(n,n+len) // n到n+len範圍內最大值
-max_element(v.begin(),v.end()) // vector 中最大值
+max_element(n,n+len); // n到n+len範圍內最大值
+max_element(v.begin(),v.end()); // vector 中最大值
 /*找到範圍裏面的最大元素*/
-min_element(n,n+len) // n到n+len範圍內最小值
-min_element(v.begin(),v.end()) // vector 中最小值
+min_element(n,n+len); // n到n+len範圍內最小值
+min_element(v.begin(),v.end()); // vector 中最小值
 
 /*queue*/
 queue<datatype> q;
