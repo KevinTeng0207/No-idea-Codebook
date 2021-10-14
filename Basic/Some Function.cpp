@@ -11,8 +11,15 @@ prev_permutation(num.begin(), num.end());
 vector<int>::iterator it = lower_bound(v.begin(), v.end(), val);
 //用binary search找大於val的最小值的位置
 vector<int>::iterator it = upper_bound(v.begin(), v.end(), val);
-/*queue*/
 
+/*找到範圍裏面的最大元素*/
+max_element(n,n+len) // n到n+len範圍內最大值
+max_element(v.begin(),v.end()) // vector 中最大值
+/*找到範圍裏面的最大元素*/
+min_element(n,n+len) // n到n+len範圍內最小值
+min_element(v.begin(),v.end()) // vector 中最小值
+
+/*queue*/
 queue<datatype> q;
 front(); /*取出最前面的值(沒有移除掉)*/
 back();  /*取出最後面的值(沒有移除掉)*/
