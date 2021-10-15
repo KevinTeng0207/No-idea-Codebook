@@ -2,19 +2,17 @@
 using namespace std;
 typedef long long ll;
 typedef unsigned long long ull;
-typedef pair<int, int> pii;
-#define x first
-#define y second
 #define pb push_back
 #define len length()
 #define all(p) p.begin(), p.end()
 #define endl '\n'
-#define bug(x) cout << "value of " << #x << " is " << x << endl;
-#define bugarr(x)         \
-    for (auto i : x)      \
+#define bug(k) cout << "value of " << #k << " is " << k << endl;
+#define bugarr(k)         \
+    for (auto i : k)      \
         cout << i << ' '; \
     cout << endl;
-
+#define x first
+#define y second
 int main()
 {
     ios::sync_with_stdio(0);
