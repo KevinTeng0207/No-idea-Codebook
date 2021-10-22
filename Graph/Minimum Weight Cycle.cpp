@@ -52,6 +52,25 @@ void minimum_cycle(int n)
         bugarr(cycle);
     }
 }
+void simple_minimum_cycle(int n) // No use vector p
+{
+    int weight = INF;
+    for (int k = 0; k < n; ++k)
+    {
+        for (int i = 0; i < k; ++i)
+            for (int j = 0; j < k; ++j)
+                if (i != j)
+                    weight = min(mp[k][i] + d[i][j] + mp[j][k], weight);
+
+        for (int i = 0; i < n; ++i)
+            for (int j = 0; j < n; ++j)
+                d[i][j] = min(d[i][k] + d[k][j], d[i][j]);
+    }
+    if (weight == INF)
+        cout << "Back to jail\n";
+    else
+        cout << weight << endl;
+}
 w.resize(n, vector<int>(n, INF));
 d.resize(n, vector<int>(n, INF));
 p.resize(n, vector<int>(n));
@@ -62,3 +81,4 @@ d[a][b] = w;
 p[a][b] = b;
 init(n);
 minimum_cycle(n);
+
