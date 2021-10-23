@@ -1,34 +1,48 @@
-void Merge(vector<int> &arr, int front, int mid, int end)
+long long merge(vector<int> &P, int left, int mid, int right)
 {
-    vector<int> LeftSub(arr.begin() + front, arr.begin() + mid + 1);
-    vector<int> RightSub(arr.begin() + mid + 1, arr.begin() + end + 1);
-    LeftSub.insert(LeftSub.end(), INT_MAX);
-    RightSub.insert(RightSub.end(), INT_MAX);
-    int idxLeft = 0, idxRight = 0;
+	int *tmp = new int[right - left + 1];
+	long long sum = 0;
 
-    for (int i = front; i <= end; i++)
-    {
+	int iLeft = left;
+	int iRight = mid + 1;
+	int iMerge = 0;
 
-        if (LeftSub[idxLeft] <= RightSub[idxRight])
-        {
-            arr[i] = LeftSub[idxLeft];
-            idxLeft++;
-        }
-        else
-        {
-            arr[i] = RightSub[idxRight];
-            idxRight++;
-        }
-    }
+	// the middle reverse numbers
+	while (iLeft <= mid && iRight <= right)
+	{
+		if (P[iLeft] <= P[iRight])
+		{
+			tmp[iMerge++] = P[iLeft++];
+		}
+		else
+		{
+			tmp[iMerge++] = P[iRight++];
+			sum += mid - iLeft + 1; // key point
+		}
+	}
+	while (iLeft <= mid)
+		tmp[iMerge++] = P[iLeft++];
+
+	while (iRight <= right)
+		tmp[iMerge++] = P[iRight++];
+
+	for (int i = left; i <= right; ++i)
+		P[i] = tmp[i - left];
+
+	delete[] tmp;
+	return sum;
 }
-void MergeSort(vector<int> &arr, int front, int end)
+
+long long mergesort(vector<int> &P, int left, int right)
 {
-    // front = 0 , end = arr.size() - 1
-    if (front < end)
-    {
-        int mid = (front + end) / 2;
-        MergeSort(arr, front, mid);
-        MergeSort(arr, mid + 1, end);
-        Merge(arr, front, mid, end);
-    }
+	long long sum = 0;
+	// left = 0, right = P.size() - 1
+	if (left < right)
+	{
+		int mid = (left + right) / 2;
+		sum = mergesort(P, left, mid);
+		sum += mergesort(P, mid + 1, right);
+		sum += merge(P, left, mid, right);
+	}
+	return sum; // 回傳為 swap 次數
 }
