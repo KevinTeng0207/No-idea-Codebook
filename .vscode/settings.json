@@ -9,6 +9,7 @@
         "initializer_list": "cpp",
         "type_traits": "cpp",
         "ios": "cpp",
-        "xiosbase": "cpp"
+        "xiosbase": "cpp",
+        "utility": "cpp"
     }
 }
