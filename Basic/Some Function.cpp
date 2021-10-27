@@ -47,3 +47,9 @@ insert(); /*插入值*/
 erase();  /*刪除值*/
 empty();  /*bool 檢查是不是空*/
 count();  /*判斷元素存在回傳1 無則回傳0*/
+
+/*tuple*/
+tuple<datatype,datatype,datatype> t;
+std::get<0>(t) /*Get first element of tuple*/
+std::get<1>(t) /*Get second element of tuple*/
+std::get<2>(t) /*Get third element of tuple*/
