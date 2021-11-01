@@ -1,7 +1,7 @@
 // 查找和目標值完全相等的數
 int find(vector<int> &nums, int target)
 {
-    int left = 0, right = nums.size();
+    int left = 0, right = nums.size() - 1;
     while (left < right)
     {
         int mid = left + (right - left) / 2;
@@ -18,7 +18,7 @@ int find(vector<int> &nums, int target)
 /*(lower_bound)*/
 int find(vector<int> &nums, int target)
 {
-    int left = 0, right = nums.size();
+    int left = 0, right = nums.size() - 1;
     while (left < right)
     {
         int mid = left + (right - left) / 2;
@@ -33,7 +33,7 @@ int find(vector<int> &nums, int target)
 /*(upper_bound)*/
 int find(vector<int> &nums, int target)
 {
-    int left = 0, right = nums.size();
+    int left = 0, right = nums.size() - 1;
     while (left < right)
     {
         int mid = left + (right - left) / 2;

@@ -10,9 +10,9 @@ set_intersection(all(a), all(b), back_inserter(c)); //交集
 /** 全排列要先 sort !!! **/
 next_permutation(num.begin(), num.end());
 prev_permutation(num.begin(), num.end());
-//用binary search找大於或等於val的最小值的位置
+//用binary search找第一個大於或等於val的位置
 vector<int>::iterator it = lower_bound(v.begin(), v.end(), val);
-//用binary search找大於val的最小值的位置
+//用binary search找第一個大於val的位置
 vector<int>::iterator it = upper_bound(v.begin(), v.end(), val);
 
 /*找到範圍裏面的最大元素*/
