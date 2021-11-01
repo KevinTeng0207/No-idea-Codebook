@@ -1,11 +1,4 @@
 vector<int> ans;
-void printLIS(vector<int> &arr, vector<int> &pos, int index)
-{
-    if (pos[index] != -1)
-        printLIS(arr, pos, pos[index]);
-    // printf("%d", arr[index]);
-    ans.push_back(arr[index]);
-}
 void LIS(vector<int> &arr)
 {
     vector<int> dp(arr.size(), 1);
@@ -39,5 +32,11 @@ void LIS(vector<int> &arr)
             cout << ' ';
     }
     cout << '\n';
+}
+void printLIS(vector<int> &arr, vector<int> &pos, int index)
+{
+    if (pos[index] != -1)
+        printLIS(arr, pos, pos[index]);
+    ans.push_back(arr[index]);
 }
 

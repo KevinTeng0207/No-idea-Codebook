@@ -8,7 +8,8 @@ int LIS(vector<int> &v) // O(n*log(n))
     for (int i = 1; i < v.size(); i++)
     {
         auto b = tail.begin(), e = tail.begin() + length;
-        auto it = lower_bound(b, e, v[i]);
+        // auto it = lower_bound(b, e, v[i]); // 後面 >= 前面
+        auto it = upper_bound(b, e, v[i]); // 後面 > 前面
         if (it == tail.begin() + length)
             tail[length++] = v[i];
         else
