@@ -1,5 +1,6 @@
 int LIS(vector<int> &v) // O(n*log(n))
-{
+{ // 需要求 LDS 請把 array reverse 反過來求 LIS
+  // 但必須注意 lower_bound or upper_bound
     if (v.size() == 0)
         return 0;
     vector<int> tail(v.size(), 0);
