@@ -108,6 +108,7 @@ struct polygon
         if (s.size() > 1) // 重複頭一次需扣掉
             --m;
         p.resize(m);
+        // p.pb(s[0]); // 需要頭在 pb 回去!!
     }
     T diam()
     { //直徑
