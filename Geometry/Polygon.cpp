@@ -82,12 +82,11 @@ struct polygon
         }
         return ans;
     }
-    static bool graham_cmp(const point<T> &a, const point<T> &b)
-    { //凸包排序函數 // 起始點不同 
-        // return (a.x < b.x) || (a.x == b.x && a.y < b.y);  //最左下角開始
-        return (a.y < b.y) || (a.y == b.y && a.x < b.x);  //Y最小開始
+    static bool Andrew_Monotone_Chain(const point<T> &a, const point<T> &b)
+    { //凸包排序函數 // 起始點不同
+        return (a.y < b.y) || (a.y == b.y && a.x < b.x); //Y最小開始
     }
-    void graham(vector<point<T>> &s)
+    void Andrew_Monotone_Chain(vector<point<T>> &s)
     { //凸包 Convexhull 2D
         sort(s.begin(), s.end(), graham_cmp);
         p.resize(s.size() + 1);
