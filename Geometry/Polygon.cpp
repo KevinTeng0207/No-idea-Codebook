@@ -124,7 +124,7 @@ struct polygon
         return p.pop_back(), ans;
     }
     T min_cover_rectangle()
-    { //最小覆蓋矩形
+    { // 先做凸包 //最小覆蓋矩形 
         int n = p.size(), t = 1, r = 1, l;
         if (n < 3)
             return 0; //也可以做最小周長矩形
