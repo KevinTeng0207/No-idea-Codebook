@@ -14,7 +14,7 @@ double Area(int a, int b, int c, int d, p ab, p cd, polygon<double> po)
     double h2 = distanceOfpAndLine(po.p[c], po.p[d], po.p[d] + cd);
     return h1 * h2;
 }
-double max_enclose(polygon<double> po)
+double max_cover_rectangle(polygon<double> po)
 {
     po.p.pb(po.p[0]);
     int m = po.p.size();
