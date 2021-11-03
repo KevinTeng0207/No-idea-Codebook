@@ -82,13 +82,13 @@ struct polygon
         }
         return ans;
     }
-    static bool Andrew_Monotone_Chain(const point<T> &a, const point<T> &b)
+    static bool Andrew_Monotone_Chain_angle(const point<T> &a, const point<T> &b)
     { //凸包排序函數 // 起始點不同
         return (a.y < b.y) || (a.y == b.y && a.x < b.x); //Y最小開始
     }
     void Andrew_Monotone_Chain(vector<point<T>> &s)
     { //凸包 Convexhull 2D
-        sort(s.begin(), s.end(), graham_cmp);
+        sort(s.begin(), s.end(), Andrew_Monotone_Chain_angle);
         p.resize(s.size() + 1);
         int m = 0;
         // cross >= 0 順時針。cross <= 0 逆時針旋轉
