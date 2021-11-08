@@ -4,6 +4,11 @@ floor(double f);           //捨去
 __builtin_popcount(int n); // 32bit有多少 1
 to_string(int s);          // int to string
 
+cout << setprecision(位數) // cout 小數位設定
+printf 型別
+"%lf" // long double
+"%lld" // long long int
+
 set_union(all(a), all(b), back_inserter(d)); // 聯集 
 set_intersection(all(a), all(b), back_inserter(c)); //交集
 
