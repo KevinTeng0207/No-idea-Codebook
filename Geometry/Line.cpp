@@ -94,7 +94,8 @@ struct line
     point<T> line_intersection(const line &l) const
     { /*直線交點*/
         point<T> a = p2 - p1, b = l.p2 - l.p1, s = l.p1 - p1;
-        //if(a.cross(b)==0)return INF;
+        // if (a.cross(b) == 0)
+        //     return INF;
         return p1 + a * (s.cross(b) / a.cross(b));
     }
     point<T> seg_intersection(const line &l) const
