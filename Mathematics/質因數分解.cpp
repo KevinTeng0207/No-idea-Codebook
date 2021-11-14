@@ -1,17 +1,15 @@
-LL ans;
-void find(LL n, LL c) // 配合質數判斷
+void primeFactorization(int n) // 配合質數判斷
 {
-    if (n == 1)
-        return;
-    if (Miller_Rabin(n))
+    for (int i = 0; i < p.size(); ++i)
     {
-        ans = min(ans, n);
-        // bug(ans); //質因數
-        return;
+        if (p[i] * p[i] > n)
+            break;
+        if (n % p[i])
+            continue;
+        bug(p[i]);
+        while (n % p[i] == 0)
+            n /= p[i];
     }
-    LL x = n, k = c;
-    while (x == n)
-        x = Pollard_Rho(x, c--);
-    find(n / x, k);
-    find(x, k);
+    if (n != 1)
+        bug(n);
 }
