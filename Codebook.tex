@@ -1,39 +1,44 @@
-\documentclass[a4paper,10pt,oneside]{article}
-\setlength{\columnsep}{15pt}    %兩欄模式的間距
-\setlength{\columnseprule}{0pt}
+\documentclass[a4paper,10pt,twocolumn,oneside]{article}
+\setlength{\columnsep}{10pt}                                                                    %兩欄模式的間距
+\setlength{\columnseprule}{0pt}                                                                %兩欄模式間格線粗細
 
-\usepackage[landscape]{geometry}
 \usepackage{amsthm}								%定義，例題
 \usepackage{amssymb}
+%\usepackage[margin=2cm]{geometry}
 \usepackage{fontspec}								%設定字體
 \usepackage{color}
 \usepackage[x11names]{xcolor}
-\usepackage{xeCJK}								%xeCJK
 \usepackage{listings}								%顯示code用的
-%\usepackage[Glenn]{fncychap}						%排版，頁面模板
+\usepackage[Glenn]{fncychap}						%排版，頁面模板
 \usepackage{fancyhdr}								%設定頁首頁尾
 \usepackage{graphicx}								%Graphic
 \usepackage{enumerate}
+\usepackage{changepage}
 \usepackage{titlesec}
 \usepackage{amsmath}
-\usepackage{pdfpages}
-\usepackage{multicol}
-\usepackage{fancyhdr}
+\usepackage{codebook}
+\usepackage[CheckSingle, CJKmath]{xeCJK}
+% \usepackage{CJKulem}
+
 %\usepackage[T1]{fontenc}
 \usepackage{amsmath, courier, listings, fancyhdr, graphicx}
+\topmargin=0pt
+\headsep=5pt
+\textheight=780pt
+\footskip=0pt
+\voffset=-40pt
+\textwidth=545pt
+\marginparsep=0pt
+\marginparwidth=0pt
+\marginparpush=0pt
+\oddsidemargin=0pt
+\evensidemargin=0pt
+\hoffset=-42pt
 
-%\topmargin=0pt
-%\headsep=5pt
-\textheight=530pt
-%\footskip=0pt
-\voffset=-20pt
-\textwidth=800pt
-%\marginparsep=0pt
-%\marginparwidth=0pt
-%\marginparpush=0pt
-%\oddsidemargin=0pt
-%\evensidemargin=0pt
-\hoffset=-100pt
+%\renewcommand\listfigurename{圖目錄}
+%\renewcommand\listtablename{表目錄} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %\setmainfont{Consolas}				%主要字型
 \setCJKmainfont{msjh.ttc}			%中文字型
@@ -44,15 +49,16 @@
 \XeTeXlinebreakskip = 0pt plus 1pt				%設定段落之間的距離
 \setcounter{secnumdepth}{3}						%目錄顯示第三層
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \makeatletter
 \lst@CCPutMacro\lst@ProcessOther {"2D}{\lst@ttfamily{-{}}{-{}}}
 \@empty\z@\@empty
 \makeatother
 \lstset{											% Code顯示
 language=C++,										% the language of the code
-basicstyle=\scriptsize\ttfamily, 						% the size of the fonts that are used for the code
-numbers=left,										% where to put the line-numbers
-numberstyle=\tiny,						% the size of the fonts that are used for the line-numbers
+basicstyle=\ttfamily, 						% the size of the fonts that are used for the code
+%numbers=left,										% where to put the line-numbers
+numberstyle=\footnotesize,						% the size of the fonts that are used for the line-numbers
 stepnumber=1,										% the step between two line-numbers. If it's 1, each line  will be numbered
 numbersep=5pt,										% how far the line-numbers are from the code
 backgroundcolor=\color{white},					% choose the background color. You must add \usepackage{color}
@@ -68,45 +74,125 @@ escapeinside={\%*}{*)},							% if you want to add a comment within your code
 morekeywords={*},									% if you want to add more keywords to the set
 keywordstyle=\bfseries\color{Blue1},
 commentstyle=\itshape\color{Red4},
-stringstyle=\itshape\color{Green4},
+stringstyle=\itshape\color{Green4}
 }
 
 
-\newcommand{\includecpp}[2]{
-  \subsection{#1}
-    \lstinputlisting{#2}
-}
 
-\newcommand{\includetex}[2]{
-  \subsection{#1}
-    \input{#2}
-}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
-  \begin{multicols}{4}
-  \pagestyle{fancy}
-  
-  \fancyfoot{}
-  \fancyhead[L]{NCNU - No idea codebook}
-  \fancyhead[R]{\thepage}
-  
-  \renewcommand{\headrulewidth}{0.4pt}
-  \renewcommand{\contentsname}{Contents}
+\pagestyle{fancy}
+\fancyfoot{}
+%\fancyfoot[R]{\includegraphics[width=20pt]{ironwood.jpg}}
+\fancyhead[L]{NCNU - No idea codebook}
+\fancyhead[R]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\contentsname}{Contents} 
+\scriptsize
+\begingroup
+\let\clearpage\relax
+% \tableofcontents
+\endgroup
+\tableofcontents
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \newpage
 
-   
-  \scriptsize
-  \input{list.tex}
-  \clearpage
-  \end{multicols}
-  \newpage
-  \begin{multicols}{4}
-  \enlargethispage*{\baselineskip}
-  \begin{center}
-    \Huge\textsc{To do writing not thinking}
-    \vspace{0.35cm}    
-  \end{center}
-  \tableofcontents
-  \end{multicols}
-  \clearpage
+\section{Basic}
+  \code{Basic codeblock setting}{./Basic/Basic codeblock setting.cpp}
+  \code{Basic vim setting}{./Basic/Basic vim setting.cpp}
+  \code{Code Template}{./Basic/Code Template.cpp}
+  \code{Python}{./Basic/Python.cpp}
+  \code{Range data}{./Basic/Range data.cpp}
+  \code{Some Function}{./Basic/Some Function.cpp}
+  \code{Time}{./Basic/Time.cpp}
+
+\section{DP}
+  \code{3維DP思路}{./DP/3維DP思路.cpp}
+  \code{Knapsack Bounded}{./DP/Knapsack Bounded.cpp}
+  \code{Knapsack sample}{./DP/Knapsack sample.cpp}
+  \code{Knapsack Unbounded}{./DP/Knapsack Unbounded.cpp}
+  \code{LCIS}{./DP/LCIS.cpp}
+  \code{LCS}{./DP/LCS.cpp}
+  \code{LIS O(Nlog(N))}{./DP/LIS O(Nlog(N)).cpp}
+  \code{LIS}{./DP/LIS.cpp}
+  \code{LPS}{./DP/LPS.cpp}
+  \code{Max\_subarray}{./DP/Max_subarray.cpp}
+  \code{Money problem}{./DP/Money problem.cpp}
+
+\section{Flow \& matching}
+  \code{Dinic}{./Flow & matching/Dinic.cpp}
+  \code{Edmonds\_karp}{./Flow & matching/Edmonds_karp.cpp}
+  \code{hungarian}{./Flow & matching/hungarian.cpp}
+  \code{Maximum\_matching}{./Flow & matching/Maximum_matching.cpp}
+  \code{MFlow Model}{./Flow & matching/MFlow Model.cpp}
+
+\section{Geometry}
+  \code{Circle Intersect}{./Geometry/Circle Intersect.cpp}
+  \code{Closest Pair}{./Geometry/Closest Pair.cpp}
+  \code{Line}{./Geometry/Line.cpp}
+  \code{max\_cover\_rectangle}{./Geometry/max_cover_rectangle.cpp}
+  \code{Point}{./Geometry/Point.cpp}
+  \code{Polygon}{./Geometry/Polygon.cpp}
+  \code{Triangle}{./Geometry/Triangle.cpp}
+
+\section{Graph}
+  \code{Bellman-Ford}{./Graph/Bellman-Ford.cpp}
+  \code{BFS-queue}{./Graph/BFS-queue.cpp}
+  \code{DFS-rec}{./Graph/DFS-rec.cpp}
+  \code{Dijkstra}{./Graph/Dijkstra.cpp}
+  \code{Euler circuit}{./Graph/Euler circuit.cpp}
+  \code{Floyd-warshall}{./Graph/Floyd-warshall.cpp}
+  \code{Hamilton\_cycle}{./Graph/Hamilton_cycle.cpp}
+  \code{Kruskal}{./Graph/Kruskal.cpp}
+  \code{Minimum Weight Cycle}{./Graph/Minimum Weight Cycle.cpp}
+  \code{Prim}{./Graph/Prim.cpp}
+  \code{Union\_find}{./Graph/Union_find.cpp}
+
+\section{Mathematics}
+  \tex{Catalan}{./Mathematics/Catalan.tex}
+  \code{Combination}{./Mathematics/Combination.cpp}
+  \code{Extended Euclidean}{./Mathematics/Extended Euclidean.cpp}
+  \tex{Fermat}{./Mathematics/Fermat.tex}
+  \code{Hex to Dec}{./Mathematics/Hex to Dec.cpp}
+  \code{Log}{./Mathematics/Log.cpp}
+  \tex{Mod性質}{./Mathematics/Mod性質.tex}
+  \code{PI}{./Mathematics/PI.cpp}
+  \code{Prime table}{./Mathematics/Prime table.cpp}
+  \code{Prime判斷}{./Mathematics/Prime判斷.cpp}
+  \code{Round(小數)}{./Mathematics/Round(小數).cpp}
+  \code{二分逼近法}{./Mathematics/二分逼近法.cpp}
+  \tex{公式}{./Mathematics/公式.tex}
+  \code{四則運算}{./Mathematics/四則運算.cpp}
+  \code{因數表}{./Mathematics/因數表.cpp}
+  \code{數字乘法組合}{./Mathematics/數字乘法組合.cpp}
+  \code{數字加法組合}{./Mathematics/數字加法組合.cpp}
+  \code{羅馬數字}{./Mathematics/羅馬數字.cpp}
+  \code{質因數分解}{./Mathematics/質因數分解.cpp}
+  \code{質數數量}{./Mathematics/質數數量.cpp}
+
+\section{Other}
+  \code{binary search 三類變化}{./Other/Binary search 三類變化.cpp}
+  \code{Heap sort}{./Other/Heap sort.cpp}
+  \code{Josephus}{./Other/Josephus.cpp}
+  \code{Merge sort}{./Other/Merge sort.cpp}
+  \code{Quick sort}{./Other/Quick sort.cpp}
+  \code{Weighted Job Scheduling}{./Other/Weighted Job Scheduling.cpp}
+  \code{多區間算最大}{./Other/Largest Multi-interval.cpp}
+  \code{數獨解法}{./Other/Sudoku solution.cpp}
+
+\section{String}
+  \code{KMP}{./String/KMP.cpp}
+  \code{Min Edit Distance}{./String/Min Edit Distance.cpp}
+  \code{Sliding window}{./String/Sliding window.cpp}
+  \code{Split}{./String/Split.cpp}
+
+\section{data structure}
+  \code{Bigint}{./data structure/Bigint.cpp}
+  \code{DisjointSet}{./data structure/DisjointSet.cpp}
+  \code{Matirx}{./data structure/Matirx.cpp}
+  \code{Trie}{./data structure/Trie.cpp}
+  \code{分數}{./data structure/分數.cpp}
+
+
 \end{document}

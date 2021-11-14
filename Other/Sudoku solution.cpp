@@ -1,3 +1,4 @@
+/*數獨解法*/
 int getSquareIndex(int row, int column, int n)
 {
     return row / n * n + column / n;

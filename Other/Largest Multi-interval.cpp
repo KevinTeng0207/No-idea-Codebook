@@ -1,3 +1,4 @@
+/*多區間算最大值*/
 bool name(pii a, pii b)
 { return b.first > a.first;}
 vector<pii> data;
