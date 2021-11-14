@@ -9,10 +9,8 @@ typedef unsigned long long ull;
 #define x first
 #define y second
 #define bug(k) cout << "value of " << #k << " is " << k << endl;
-#define bugarr(k)         \
-    for (auto i : k)      \
-        cout << i << ' '; \
-    cout << endl;
+#define bugp(k) cout << "pair of " << #k << " is " << k.x << ' ' << k.y << endl;
+#define bugarr(k) for(auto i : k) cout << i << ' '; cout << endl;
 int main()
 {
     ios::sync_with_stdio(0);
