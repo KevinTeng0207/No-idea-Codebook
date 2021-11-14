@@ -1,4 +1,4 @@
-const int maxn = sqrt(INT_MAX);
+const int maxn = 10e9;
 vector<int> p;
 bitset<maxn> is_notp;
 void PrimeTable()
