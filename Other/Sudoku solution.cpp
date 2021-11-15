@@ -57,4 +57,4 @@ for (int i = 0; i < n * n; ++i)
 if (backtracking(board, isRow, isColumn, isSquare, 0, n))
     /*有解答*/
 else
-    /*解答*/
+    /*無解答*/
