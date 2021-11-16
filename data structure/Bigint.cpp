@@ -99,7 +99,7 @@ struct Bigint
         for (int i = a.len() - 2; i >= 0; i--)
         {
             char str[10];
-            snprintf(str, 5, "%.4d", a.v[i]);
+            sprintf(str, 5, "%.4d", a.v[i]);
             out << str;
         }
         return out;
