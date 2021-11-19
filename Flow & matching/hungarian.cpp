@@ -1,33 +1,39 @@
 /*bipartite - hungarian*/
-struct Graph{
-    static const int MAXN = 5003;
-    vector<int> G[MAXN];
-    int n, match[MAXN], vis[MAXN];
-    void init(int _n){
-        n = _n;
-        for (int i=0; i<n; i++) G[i].clear();
-    }
-    bool dfs(int u){
-            for (int v:G[u]){
-            if (vis[v]) continue;
-            vis[v]=true;
-            if (match[v]==-1 || dfs(match[v])){
-                match[v] = u;
-                match[u] = v;
+/*Based on 2017 ICPC Taiwan regional final Problem I*/
+bool dfs(vector<vector<bool>> mp, vector<bool> pass, vector<int>& pre,int cur){
+    for(int i = 0;i < mp[cur].size(); i++){
+        if(mp[cur][i] && !pass[i]){
+            pass[i] = true;
+            if(pre[i] == -1 || dfs(mp,pass,pre,pre[i])){
+                pre[i] = cur;
                 return true;
             }
         }
-        return false;
     }
-    int solve(){
-        int res = 0;
-        memset(match,-1,sizeof(match));
-        for (int i=0; i<n; i++){
-            if (match[i]==-1){
-                memset(vis,0,sizeof(vis));
-                if ( dfs(i) ) res++;
-            }   
+    return false;
+}
+int hungarian(vector<vector<bool>> mp,int n,int m){
+    int ans = 0;
+    vector<int> pre(m,-1);
+    for(int i = 0;i < n; i++){
+        vector<bool> pass(m,false);
+        if(dfs(mp,pass,pre,i))
+            ans += 1;
+    }
+    return ans;
+}
+int main(){
+    int m,n,e;
+    while(cin>>n){
+        if(n == 0) break;
+        cin>>m>>e;
+        int a,b;
+        vector<vector<bool>> mp(n,vector<bool>(m,false));
+        for(int i = 0;i < e; i++){
+            cin>>a>>b;
+            mp[a][b] = true;
         }
-        return res;
+        cout<<hungarian(mp,n,m)<<endl;
     }
-} graph;
+    return 0;
+}
