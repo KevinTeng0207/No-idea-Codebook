@@ -3,6 +3,10 @@ vector<int> father;
 vector<int> people;
 void init(int n)
 {
+    father.clear();
+    people.clear();
+    father.resize(n);
+    people.resize(n);
     for (int i = 0; i < n; i++)
     {
         father[i] = i;
