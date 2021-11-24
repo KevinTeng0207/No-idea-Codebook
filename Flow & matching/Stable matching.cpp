@@ -1,3 +1,5 @@
+/*based on UVa1175*/
+/*stable marriage problem*/
 void engage(vector<int>& bm, vector<int>& gm, int a, int b, queue<int>& q){
     int tmp = gm[b];
     if(tmp != -1){
@@ -39,8 +41,10 @@ int main(){
             if(gm[car] == -1 || girl[car][cur] < girl[car][gm[car]]) engage(bm,gm,cur,car,q);
             else q.push(cur);
         }
+        /*This is optimal solution for lady*/
+        /*If want optimal for man change the lady and man on above algorithm*/
         for(int i = 1;i <= n; i++){
-            cout<<bm[i]<<endl;
+            cout<<bm[i]<<endl; 
         }
         blank = true;
     }
