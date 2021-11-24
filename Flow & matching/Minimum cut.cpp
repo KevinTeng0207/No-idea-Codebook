@@ -1,3 +1,4 @@
+/*from 演算法筆記*/
 typedef int Graph[9][9];    // adjacency matrix
 Graph C, F, R;              // 分別是容量上限、流量、剩餘容量
 bool visit[9];
