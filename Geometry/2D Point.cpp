@@ -37,6 +37,10 @@ struct point
     { //求法向量
         return point(-y, x);
     }
+    T abs() const
+    { //向量長度的平方
+        return sqrt(abs2(p));
+    }
     T abs2() const
     { //向量長度的平方
         return dot(*this);
