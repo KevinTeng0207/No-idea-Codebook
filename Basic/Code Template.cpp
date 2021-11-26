@@ -3,7 +3,7 @@ using namespace std;
 typedef long long ll;
 typedef unsigned long long ull;
 #define pb push_back
-#define len length()
+#define len(k) (int)k.length()
 #define all(p) p.begin(), p.end()
 #define endl '\n'
 #define x first
