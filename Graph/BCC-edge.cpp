@@ -1,5 +1,4 @@
-struct BccEdge
-{
+struct BccEdge {
     static const int MXN = 100005;
     struct Edge {
         int v, eid;
@@ -30,20 +29,22 @@ struct BccEdge
                 DFS(v, u, it.eid);
                 low[u] = min(low[u], low[v]);
             }
-            else
+            else {
                 low[u] = min(low[u], dfn[v]);
+            }
         }
     }
     void solve() {
         step = 0;
         memset(dfn, -1, sizeof(int) * n);
-        for (int i = 0; i < n; i++)
+        for (int i = 0; i < n; i++) {
             if (dfn[i] == -1)
                 DFS(i, i, -1);
-        djs.init(n);
-        for (int i = 0; i < n; i++) {
-            if (low[i] < dfn[i])
-                djs.uni(i, par[i]);
+            djs.init(n);
+            for (int i = 0; i < n; i++) {
+                if (low[i] < dfn[i])
+                    djs.uni(i, par[i]);
+            }
         }
     }
-} graph;
+    graph;
